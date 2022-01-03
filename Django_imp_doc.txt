@@ -1,0 +1,39 @@
+1) Releted name
+ref -- feelfreecode/projects/lms/ coursesapp
+
+E:\feel free to code\PROJECTS\LMS\CJC_Courses>py manage.py shell
+Python 3.8.1 (tags/v3.8.1:1b293b6, Dec 18 2019, 23:11:46) [MSC v.1916 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+(InteractiveConsole)
+>>> from courseapp.models import Course
+>>> Course
+<class 'courseapp.models.Course'>
+>>> Course.objects.all()
+<QuerySet [<Course: Python>]>
+>>> course = Course.objects.all()[0]
+>>> course
+<Course: Python>
+>>> course.tags
+<django.db.models.fields.related_descriptors.create_reverse_many_to_one_manager.<locals>.RelatedManager object at 0x0000027ACE4405B0>
+
+
+
+
+>>> from courseapp.models import Category
+>>> Category.objects.all()
+<QuerySet [<Category: Python>]>
+>>> Category.objects.all()[0]
+<Category: Python>
+>>> Category.objects.all()[0].courses
+<django.db.models.fields.related_descriptors.create_reverse_many_to_one_manager.<locals>.RelatedManager object at 0x000001B7A0A404F0>
+>>> Category.objects.all()[0].courses.all()
+<QuerySet [<Course: Python>]>
+>>> Category.objects.all()[0].courses.all()[0]
+<Course: Python>
+>>> Category.objects.all()[0].courses.all()[0].tags
+<django.db.models.fields.related_descriptors.create_reverse_many_to_one_manager.<locals>.RelatedManager object at 0x000001B7A0A40670>
+>>> Category.objects.all()[0].courses.all()[0].tags.all()
+<QuerySet [<Tag: Django>, <Tag: Python>]>
+>>> Category.objects.all()[0].courses.all()[0].tags.all()[0]
+<Tag: Django>
+>>>
